@@ -1,4 +1,4 @@
-This is new project called conway_game_of_life. Please change the information in conway_game_of_life.gemspec accordingly.
+This is new project called conway_game_of_life.
 
 # conway_game_of_life
 The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
