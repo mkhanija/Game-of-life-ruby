@@ -57,8 +57,7 @@ module GameOfLife
       new_universe = universe.process_universe
 
       assert_equal(ans, new_universe)
+      
     end
-
-
   end
 end

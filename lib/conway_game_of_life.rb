@@ -19,9 +19,9 @@ module GameOfLife
     end
     
     def print_universe
-      for i in 0..height 
-        for j in 0..width
-            print @map[i][j]
+      for i in 0..@height -1
+        for j in 0..@width -1
+            print @grid[i][j]
         end
         print "\n"
       end
@@ -65,6 +65,21 @@ module GameOfLife
       return new_universe
     end
 
-    
   end
+
+  input_array = File.readlines('input.txt')
+  input_array_int = Array.new(input_array.length){Array.new(input_array[0].length, 0)}
+  for y in 0..input_array.length - 1
+    for x in 0..input_array[0].length - 1
+      input_array_int[y][x] = input_array[y][x].to_i
+    end
+  end
+  universe = Universe.new(input_array_int.length, input_array_int[0].length, input_array_int)
+  
+  for i in 0..15
+    universe.print_universe
+    print "----------------------\n"
+    universe.process_universe
+  end
+  
 end 
