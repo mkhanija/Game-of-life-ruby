@@ -41,5 +41,24 @@ module GameOfLife
       assert_equal(2, universe.count_neighbors(2, 0))
     end
 
+    def test_process_universe
+      initial = Array.new(3){Array.new(3, 0)}
+      initial[1][0] = 1
+      initial[1][1] = 1
+      initial[1][2] = 1
+
+      universe = Universe.new(3, 3, initial)
+
+      ans = Array.new(3){Array.new(3, 0)}
+      ans[0][1] = 1
+      ans[1][1] = 1
+      ans[2][1] = 1
+
+      new_universe = universe.process_universe
+
+      assert_equal(ans, new_universe)
+    end
+
+
   end
 end
