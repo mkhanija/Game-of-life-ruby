@@ -14,6 +14,32 @@ module GameOfLife
       assert_equal(grid, universe.grid)
     end
 
+    def test_count_neighbors
+      tester = Array.new(3){Array.new(3, 0)}
+      
+      tester[0][0] = 1
+      tester[1][0] = 1
+      tester[2][0] = 1
+
+      universe = Universe.new(3, 3, tester)
+
+      assert_equal(3, universe.count_neighbors(1, 1))
+      assert_equal(1, universe.count_neighbors(0, 0))
+      assert_equal(2, universe.count_neighbors(0, 1))
+      assert_equal(1, universe.count_neighbors(0, 2))
+      
+      tester[0][1] = 1
+      tester[0][2] = 1
+      tester[1][2] = 1
+      tester[2][1] = 1
+      tester[2][2] = 1
+
+      universe = Universe.new(3, 3, tester)
+      assert_equal(4, universe.count_neighbors(1, 2))
+      assert_equal(2, universe.count_neighbors(2, 2))
+      assert_equal(4, universe.count_neighbors(2, 1))
+      assert_equal(2, universe.count_neighbors(2, 0))
+    end
 
   end
 end
